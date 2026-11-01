@@ -113,7 +113,9 @@ def generate_launch_description():
         executable='parameter_bridge',
         arguments=[
             '/camera@sensor_msgs/msg/Image@gz.msgs.Image',
+             '/camera_2@sensor_msgs/msg/Image@gz.msgs.Image',
             '/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo',
+            '/camera_2_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo',
             '/world/armando_workbench/dynamic_pose/info@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V',
             
             # Bridge per i comandi di presa 
@@ -128,7 +130,9 @@ def generate_launch_description():
         ],
         remappings=[
             ('/camera', '/camera/image_raw'),
+            ('/camera_2', '/camera_2/image_raw'),
             ('/camera_info', '/camera/camera_info'),
+            ('/camera_2_info', '/camera_2/camera_info'),
         ],
         output='screen',
         parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}],
